@@ -3,16 +3,16 @@ import { Player, Welcome, Auth, PlaylistScreen } from '../Screens/index';
 import TabsNavigation from './TabsNavigation';
 
 type MainStackParamList = {
-  Welcome: undefined;
-  Auth: undefined;
-  TabsNavigation: undefined;
-  Player: undefined;
-  PlaylistScreen: undefined;
+  Welcome: React.FC;
+  Auth: React.FC;
+  TabsNavigation: React.FC;
+  Player: React.FC;
+  PlaylistScreen: React.FC;
 };
 
 const RootStack = createStackNavigator<MainStackParamList>();
 
-export function MainStack() {
+const MainStack: React.FC = () => {
   return (
     <RootStack.Navigator initialRouteName="Welcome" screenOptions={{ headerShown: false }}>
       <RootStack.Screen name="Welcome" component={Welcome} />
@@ -33,3 +33,6 @@ const StackOptions = {
   },
   headerTintColor: '#fff',
 };
+
+
+export default MainStack;

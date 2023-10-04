@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleProp, TextStyle, StyleSheet } from 'react-native';
+import { Pressable, Text, StyleProp, TextStyle, StyleSheet } from 'react-native';
 import {TextComponent} from '../index'
 
 interface ButtonProps {
@@ -9,9 +9,9 @@ interface ButtonProps {
 }
 
 const TextButton: React.FC<ButtonProps> = ({ onPress, buttonText, textStyle }) => (
-  <TouchableOpacity onPress={onPress}>
+  <Pressable onPress={onPress}>
     <TextComponent text={buttonText} numberOfLines={2} style={[CurrentStyle.TextStyle, textStyle]}/>
-  </TouchableOpacity>
+  </Pressable>
 );
 
 const CurrentStyle = StyleSheet.create({

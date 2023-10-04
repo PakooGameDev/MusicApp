@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { TouchableOpacity, View, StyleProp, ViewStyle, StyleSheet } from 'react-native';
+import { Pressable, View, StyleProp, ViewStyle, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 
@@ -12,11 +12,11 @@ interface ButtonProps {
 }
 
 const IconButton: React.FC<ButtonProps> = ({ onPress, iconName, ViewStyle, IconStyle}) => (
-    <TouchableOpacity onPress={onPress}>
+    <Pressable onPress={onPress}>
         <View style={[CurrentStyle.enterBtn, ViewStyle]}>
             <Feather name={iconName} style={[CurrentStyle.enterBtnIcon, IconStyle]} />
         </View>
-    </TouchableOpacity>
+    </Pressable>
 );
 
 const CurrentStyle = StyleSheet.create({

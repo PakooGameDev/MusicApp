@@ -1,16 +1,14 @@
 import React from 'react';
-import {StyleSheet ,Text, TouchableOpacity} from 'react-native';
+import {StyleSheet ,Text, Pressable} from 'react-native';
 
 const ValidationSubmitBtn = ({title, submitting, onPress, style, textStyle}) => {
 
   
 
 return (
-    <>
-       <TouchableOpacity style={[styles.container, style]} onPress={!submitting ? onPress : null} > 
+       <Pressable style={[styles.container, style]} onPress={!submitting ? onPress : null} > 
            <Text style={[styles.title, textStyle]}>{title}</Text>
-       </TouchableOpacity>
-    </>
+       </Pressable>
 )}
 
 const styles = StyleSheet.create({

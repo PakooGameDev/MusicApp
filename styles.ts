@@ -232,6 +232,23 @@ CurrentButtons:{
     }
   });
 
+
+  export const AuthStyles = StyleSheet.create({
+    container: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    borderLeft: {
+      borderTopLeftRadius: 30,
+      borderBottomLeftRadius: 30,
+    },
+    borderRight: {
+      borderTopRightRadius: 30,
+      borderBottomRightRadius: 30,
+    },
+  });
+
  export const optionsStyles = {
     optionsContainer: {
       elevation: 10,

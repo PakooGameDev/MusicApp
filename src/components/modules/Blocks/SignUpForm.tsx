@@ -1,3 +1,4 @@
+import React from 'react';
 import ValidationSubmitBtn from '../Buttons/ValidationSubmitBtn';
 import ValidationContainer from './ValidationContainer';
 import ValidationTextInput from '../Inputs/ValidationTextInput';
@@ -6,7 +7,7 @@ import {callApi} from '../../utils/Dispatcher';
 import {Formik} from 'formik'
 
 
-const SignUpForm = () => {  
+const SignUpForm: React.FC = () => {  
 
     const userInfo = {
         email: '',

@@ -5,7 +5,7 @@ import {styles} from '../../../../styles'
   
 
 
-export function Search(props) {
+export const Search: React.FC = (props) => {
     const [text, setText] = React.useState();
     return (
         <View elevation={7}  style={styles.searchSection}>

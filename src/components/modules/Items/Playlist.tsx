@@ -1,21 +1,35 @@
 import React from 'react';
-import {  View,TouchableOpacity,  Image,Text} from 'react-native';
-import {styles} from '../../../../styles'
+import { View, Pressable, Image, Text } from 'react-native';
+import { styles } from '../../../../styles';
 
-export function Playlist (props) {
-return(
-    <View style={{marginLeft: props.index === 0 ? 31 : 0, marginRight: props.index === props.data.length ? 0 : 31}}>
-        <TouchableOpacity onPress={()=>{props.navigation.navigate('PlaylistScreen')}}>
-            <Image style={styles.songLogoRec} source={props.Item.thumbnail}/>
-            <View style={{width:150}}>
-                <Text numberOfLines={1} style={styles.songTitle}>{props.Item.title}</Text>
-                <View style={{flexDirection:'row'}}>
-                    <Text numberOfLines={1} style={styles.songLong}>{props.data.length} songs</Text>
-                    <Text numberOfLines={1} style={styles.songAuthor}>{props.Item.author}</Text>
-                </View>  
-            </View>
-        </TouchableOpacity>
+interface PlaylistProps {
+  Item: {
+    thumbnail: string;
+    title: string;
+    author: string;
+  };
+  index: number;
+  data: object[]; 
+  navigation: any;
+}
+
+const Playlist: React.FC<PlaylistProps> = (props) => {
+  const { Item, index, data, navigation } = props;
+
+  return (
+    <View style={{ marginLeft: index === 0 ? 31 : 0, marginRight: index === data.length ? 0 : 31 }}>
+      <Pressable onPress={() => { navigation.navigate('PlaylistScreen') }}>
+        <Image style={styles.songLogoRec} source={{ uri: Item.thumbnail }} />
+        <View style={{ width: 150 }}>
+          <Text numberOfLines={1} style={styles.songTitle}>{Item.title}</Text>
+          <View style={{ flexDirection: 'row' }}>
+            <Text numberOfLines={1} style={styles.songLong}>{data.length} songs</Text>
+            <Text numberOfLines={1} style={styles.songAuthor}>{Item.author}</Text>
+          </View>
+        </View>
+      </Pressable>
     </View>
-)};
+  );
+};
 
-
+export default Playlist;

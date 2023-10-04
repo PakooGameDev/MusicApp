@@ -1,16 +1,17 @@
+import React from 'react';
 import { createBottomTabNavigator, BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 import { Home, Library, Settings } from '../Screens/index';
 
 type TabsParamList = {
-  Home: undefined;
-  Library: undefined;
-  Settings: undefined;
+  Home: React.FC;
+  Library: React.FC;
+  Settings: React.FC;
 };
 
 const TabsMenu = createBottomTabNavigator<TabsParamList>(); // Нижнее навигационное меню - табы
 
-const TabsNavigation = () => {
+const TabsNavigation: React.FC = () => {
   const TabsMenuOptions: BottomTabNavigationOptions = {
     tabBarShowLabel: false,
     headerShown: false,

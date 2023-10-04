@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, SafeAreaView, View, Platform, StatusBar} from 'react-native';
 import { Feather } from  '@expo/vector-icons'
 
-export  function Settings() {
+export const Settings: React.FC = () => {
     return (
         <SafeAreaView style={styles.container}>
           <View  style={styles.header}>

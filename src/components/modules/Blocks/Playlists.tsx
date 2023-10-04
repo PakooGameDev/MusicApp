@@ -1,133 +1,36 @@
-import { FlatList } from 'react-native';
-import { Playlist } from '../Items/Playlist';
+import React from 'react';
+import { FlatList, ListRenderItemInfo } from 'react-native';
+import { Playlist } from '../index';
 
-const playlist = [
-    {
-        id: '001',
-        title: "Playlist",
-        author: 'FFDP',
-        thumbnail: require('../../../../assets/songLogo.jpg'),
-        data: [
-            {
-                id: '001',
-                title: "Save Save Your Tears Save Your Tears Save Your  Tears ",
-                author: 'FFDP',
-                thumbnail: require('../../../../assets/songLogo.jpg'),
-                long: '4:54'
-            },
-            {
-                id: '002',
-                title: "Save Save Your Tears Save Your Tears Save Your  Tears",
-                author: 'Sabaton',
-                thumbnail: require('../../../../assets/songLogo.jpg'),
-                long: '4:54'
-            },
-        ],
-    },
-    {
-      id: '002',
-        title: "Playlist",
-        author: 'FFDP',
-        thumbnail: require('../../../../assets/songLogo.jpg'),
-        data: [
-            {
-                id: '001',
-                title: "Save Save Your Tears Save Your Tears Save Your  Tears ",
-                author: 'FFDP',
-                thumbnail: require('../../../../assets/songLogo.jpg'),
-                long: '4:54'
-            },
-            {
-                id: '002',
-                title: "Save Save Your Tears Save Your Tears Save Your  Tears",
-                author: 'Sabaton',
-                thumbnail: require('../../../../assets/songLogo.jpg'),
-                long: '4:54'
-            },
-            {
-                id: '003',
-                title: "Save Save Your Tears Save Your Tears Save Your  Tears ",
-                author: 'FFDP',
-                thumbnail: require('../../../../assets/songLogo.jpg'),
-                long: '4:54'
-            },
-            {
-                id: '004',
-                title: "Save Save Your Tears Save Your Tears Save Your  Tears",
-                author: 'Sabaton',
-                thumbnail: require('../../../../assets/songLogo.jpg'),
-                long: '4:54'
-            },
-            {
-                id: '005',
-                title: "Save Save Your Tears Save Your Tears Save Your  Tears ",
-                author: 'FFDP',
-                thumbnail: require('../../../../assets/songLogo.jpg'),
-                long: '4:54'
-            },
-            {
-                id: '006',
-                title: "Save Save Your Tears Save Your Tears Save Your  Tears",
-                author: 'Sabaton',
-                thumbnail: require('../../../../assets/songLogo.jpg'),
-                long: '4:54'
-            },
-                        {
-                id: '007',
-                title: "Save Save Your Tears Save Your Tears Save Your  Tears ",
-                author: 'FFDP',
-                thumbnail: require('../../../../assets/songLogo.jpg'),
-                long: '4:54'
-            },
-            {
-                id: '008',
-                title: "Save Save Your Tears Save Your Tears Save Your  Tears",
-                author: 'Sabaton',
-                thumbnail: require('../../../../assets/songLogo.jpg'),
-                long: '4:54'
-            },
-        ],
-    },
-    {
-      id: '003',
-        title: "Playlist",
-        author: 'FFDP',
-        thumbnail: require('../../../../assets/songLogo.jpg'),
-        data: [
-            {
-                id: '001',
-                title: "Save Save Your Tears Save Your Tears Save Your  Tears ",
-                author: 'FFDP',
-                thumbnail: require('../../../../assets/songLogo.jpg'),
-                long: '4:54'
-            },
-            {
-                id: '002',
-                title: "Save Save Your Tears Save Your Tears Save Your  Tears",
-                author: 'Sabaton',
-                thumbnail: require('../../../../assets/songLogo.jpg'),
-                long: '4:54'
-            },
-        ],
-    },
-  ]
+import { playlist } from '../../utils/mockFile';
 
-export function Playlists(props) {
-    const _renderItem = ({ item, index }) => (
-        <Playlist
-            Item={item}
-            Screen={props.Screen}
-            data={playlist}
-            index={index}
-            navigation={props.navigation}
-        />
-    );
-    return (
-        <FlatList keyExtractor={(item) => item.id}
-        
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={playlist}
-            renderItem={_renderItem} />
-    );
+interface PlaylistsProps {
+  Screen: any; // Замените тип на соответствующий
+  navigation: any; // Замените тип на соответствующий
 }
+
+const Playlists: React.FC<PlaylistsProps> = ({ Screen, navigation }) => {
+  const renderItem = ({ item, index }: ListRenderItemInfo<any>) => (
+    <Playlist
+      Item={item}
+      Screen={Screen}
+      data={playlist}
+      index={index}
+      navigation={navigation}
+    />
+  );
+
+  return (
+    <FlatList
+      keyExtractor={(item) => item.id.toString()} // Предполагается, что id - это строка или число
+      initialNumToRender={8}
+      removeClippedSubviews={true}
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      data={playlist}
+      renderItem={renderItem}
+    />
+  );
+};
+
+export default Playlists;

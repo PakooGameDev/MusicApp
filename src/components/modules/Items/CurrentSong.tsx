@@ -1,3 +1,4 @@
+import React, { useRef } from 'react';
 import {  View, TouchableOpacity, Image,Text} from 'react-native';
 import { Feather } from  '@expo/vector-icons'
 import {styles} from '../../../../styles'
@@ -12,7 +13,7 @@ const data =    {
     }
 
 
-export function CurrentMusic ({ name, author, navigation }) {
+export const CurrentMusic: React.FC = ({ name, author, navigation }) => {
     return  (
         <View  style={styles.CurrentMusic} >
             <TouchableOpacity  style={styles.CurrentInfo} onPress={()=>{navigation.navigate('Player')}}>

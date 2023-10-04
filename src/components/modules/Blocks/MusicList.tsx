@@ -1,7 +1,7 @@
 import { FlatList} from 'react-native';
 import { Song } from '../Items/SongItem';
 
-export function MusicList(props){
+export const MusicList: React.FC = (props) => {
     const _renderItem = ({item,index}) => (
     <Song    
         parentItem={{

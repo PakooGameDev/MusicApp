@@ -6,7 +6,7 @@ import ValidationTextInput from '../Inputs/ValidationTextInput';
 
 import {callApi} from '../../utils/Dispatcher';
 
-const LoginForm = (props) => {  
+const LoginForm: React.FC = (props) => {  
 
     const [error, setError] = useState('')   
     const [userInfo, setUserInfo] = useState({

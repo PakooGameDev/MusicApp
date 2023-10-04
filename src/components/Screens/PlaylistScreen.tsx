@@ -10,7 +10,7 @@ import {styles} from '../../../styles'
         );
     }
   
-export function PlaylistScreen(){
+const PlaylistScreen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container}>
         <MusicList header={FlatList_Header} Screen='Playlist'/>
@@ -19,3 +19,5 @@ export function PlaylistScreen(){
   }
   
  
+
+export default PlaylistScreen;

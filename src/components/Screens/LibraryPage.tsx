@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import { SafeAreaView, ScrollView, View,Text, TouchableOpacity,} from 'react-native';
-import { Header, Search, MusicList, Albums} from '../modules/index';
+import { HeaderBlock, Search, MusicList, Albums} from '../modules/index';
 import {styles} from '../../../styles'
 import { Album } from '../modules/Items/Album';
 
@@ -17,7 +17,7 @@ export let playlist = [
   },
 ]
 
-export function Library({navigation}){
+export const Library : React.FC = ({navigation}) => {
 
   useEffect(() => {
     setListData(playlist[0].data)
@@ -47,7 +47,7 @@ export function Library({navigation}){
     return (
       <SafeAreaView style={styles.container}>
         <AlbumModalInput handleOnChangeText={handleOnChangeText} visibility={visibility} state={()=>{setVisibility(false),CreateAlbum(value)}}/>
-        <Header  name='Library'/>
+        <HeaderBlock  name='Library'/>
         <View style={{marginBottom: 20}}><Search/></View>
         <View style={{marginBottom: 20}}>
           <ScrollView style={{marginRight:20,}} horizontal showsHorizontalScrollIndicator={false}>
