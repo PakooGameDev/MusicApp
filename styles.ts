@@ -1,6 +1,6 @@
 import { StyleSheet, Platform, StatusBar,TouchableOpacity,} from 'react-native';
 
-export  const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
 
 //---------------------------------Container----------------------------------------
 container: {
@@ -170,6 +170,67 @@ CurrentButtons:{
     },
      TriggerTouchableComponent: TouchableOpacity,
   };
+
+
+  export const WelcomePage = StyleSheet.create({
+    WelcomePage: {
+      flex: 1,
+      backgroundColor: '#212529',
+      paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    Container: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom:70
+    },
+    ViewBanner: {
+      height:200,
+      width:200,
+      marginBottom:50,
+      elevation:10,
+      borderRadius:200,
+      backgroundColor: '#2a2e32',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    ViewBannerIcon: { 
+      color: 'rgba(255, 162, 0, 1)',
+      fontSize:100, 
+    },
+    h1: {
+      color:'#d9dce2',
+      fontSize:28,
+    },
+    p: {
+      textAlign:'center',
+      marginTop: 10,
+      marginHorizontal:25, 
+      fontWeight: '300',
+      fontSize:16,  
+      color:'#a1a3a4',
+    },
+    loginText: {
+      color:'rgba(255, 162, 0, 1)',
+      fontWeight: '300',
+      fontSize:22,
+      marginVertical:50,
+    },
+    enterBtn: {
+      height:70,
+      width:70, 
+      elevation:10, 
+      borderRadius:70,
+      backgroundColor:'rgba(255, 162, 0, 1)',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    enterBtnIcon: {
+      color:'#2a2e32',
+      fontSize:25,
+    }
+  });
 
  export const optionsStyles = {
     optionsContainer: {

@@ -9,8 +9,13 @@ import { CurrentMusic } from './Items/CurrentSong';
 //-----------------------------------Inputs-------------------------------------------------------------
 import { Search } from './Inputs/search';
 //-----------------------------------Text-------------------------------------------------------------
-import { Title } from './Text/title';
+import { Title } from './Text/Title';
+import TextComponent from './Text/Text'
 //-----------------------------------Buttons-------------------------------------------------------------
 import ValidationSelectorBtn from './Buttons/ValidationSelectorBtn';
+import  TextButton from './Buttons/TextButton';
+import  IconButton from './Buttons/IconButton';
+//-----------------------------------Icons-------------------------------------------------------------
+import Banner from './Icons/Banner'
 
-export {Header,ValidationSelectorBtn, Playlists, MusicList, CurrentMusic, Search, Title, LoginForm, SignUpForm, ValidationHeader}
+export {IconButton, TextComponent, TextButton, Banner, Header,ValidationSelectorBtn, Playlists, MusicList, CurrentMusic, Search, Title, LoginForm, SignUpForm, ValidationHeader}
