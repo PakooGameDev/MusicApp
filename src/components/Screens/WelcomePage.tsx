@@ -21,7 +21,7 @@ export function Welcome({navigation}){
         <TouchableOpacity onPress={()=>{navigation.navigate('Auth')}}>
         <Text numberOfLines={2} style={{color:'rgba(255, 162, 0, 1)',fontWeight: '300',fontSize:22,marginVertical:50,}}>Login</Text> 
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=>{navigation.navigate('NavStack')}}>
+        <TouchableOpacity onPress={()=>{navigation.navigate('TabsNavigation')}}>
           <View  style={{height:70,width:70, elevation:10, borderRadius:70,backgroundColor:'rgba(255, 162, 0, 1)',justifyContent: 'center',alignItems: 'center',}}>
             <Feather name='corner-up-right' style={{ color:  '#2a2e32',fontSize:25, }}/>
           </View> 

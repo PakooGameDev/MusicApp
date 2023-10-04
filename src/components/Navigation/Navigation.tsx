@@ -1,12 +1,11 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { Player, Welcome, Auth, PlaylistScreen } from '../Screens/index';
-import { TabsNavigation } from './TabsNavigation';
+import TabsNavigation from './TabsNavigation';
 
 type MainStackParamList = {
   Welcome: undefined;
   Auth: undefined;
-  NavStack: undefined;
-  TabsNavStack: undefined;
+  TabsNavigation: undefined;
   Player: undefined;
   PlaylistScreen: undefined;
 };
@@ -18,7 +17,7 @@ export function MainStack() {
     <RootStack.Navigator initialRouteName="Welcome" screenOptions={{ headerShown: false }}>
       <RootStack.Screen name="Welcome" component={Welcome} />
       <RootStack.Screen name="Auth" component={Auth} />
-      <RootStack.Screen name="TabsNavStack" component={TabsNavigation} />
+      <RootStack.Screen name="TabsNavigation" component={TabsNavigation} />
       <RootStack.Screen name="Player" component={Player} options={StackOptions} />
       <RootStack.Screen name="PlaylistScreen" component={PlaylistScreen} options={StackOptions} />
     </RootStack.Navigator>
