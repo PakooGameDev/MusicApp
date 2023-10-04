@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import { SafeAreaView, ScrollView, View,Text, TouchableOpacity,} from 'react-native';
 import { Header, Search, MusicList, Albums} from '../modules/index';
-import {styles} from '../modules/styles'
+import {styles} from '../../../styles'
 import { Album } from '../modules/Items/Album';
 
 import { Feather } from  '@expo/vector-icons'

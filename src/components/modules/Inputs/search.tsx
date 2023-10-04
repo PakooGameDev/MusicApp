@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { View, TextInput, TouchableOpacity,Modal} from 'react-native';
 import { Feather } from  '@expo/vector-icons'
-import {styles} from '../styles'
+import {styles} from '../../../../styles'
   
 
 

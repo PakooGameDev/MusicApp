@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import { SafeAreaView, View} from 'react-native';
 import { MusicList,CurrentMusic, Header,Search,Title,Playlists} from '../modules/index';
-import {styles} from '../modules/styles';
+import {styles} from '../../../styles';
 
 let SongLogo = require('../../../assets/songLogo.jpg');
 

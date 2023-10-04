@@ -1,5 +1,5 @@
 import { SafeAreaView, View, Image,Text,Platform, StatusBar,TouchableOpacity} from 'react-native';
-import {styles} from '../modules/styles.js'
+import {styles} from '../../../styles.js'
 import { Feather } from  '@expo/vector-icons'
 
 export function Welcome({navigation}){
