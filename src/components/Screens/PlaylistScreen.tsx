@@ -1,6 +1,6 @@
 import { SafeAreaView, View} from 'react-native';
-import {  Search, MusicList} from '../modules/index.js';
-import {styles} from '../modules/styles.js'
+import {  Search, MusicList} from '../modules/index';
+import {styles} from '../modules/styles'
 
     const FlatList_Header = () => {
         return (

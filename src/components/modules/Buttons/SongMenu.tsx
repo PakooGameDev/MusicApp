@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import { Feather } from  '@expo/vector-icons'
 import { View } from 'react-native';
-import {styles, triggerStyles,optionsStyles,optionStyles} from '../styles.js'
+import {styles, triggerStyles,optionsStyles,optionStyles} from '../styles'
 import {
     Menu,
     MenuOptions,

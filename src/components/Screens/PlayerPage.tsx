@@ -1,5 +1,5 @@
 import { SafeAreaView, View, Image,Text} from 'react-native';
-import {styles} from '../modules/styles.js'
+import {styles} from '../modules/styles'
 import { Feather } from  '@expo/vector-icons'
 
 export function Player(props){

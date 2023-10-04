@@ -1,5 +1,5 @@
 import {  View,TouchableOpacity,  Image,Text} from 'react-native';
-import {styles} from '../styles.js'
+import {styles} from '../styles'
 import { SongMenu } from '../Buttons/SongMenu';
 
 export function Song (props) {

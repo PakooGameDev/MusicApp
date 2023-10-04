@@ -1,6 +1,6 @@
 import {  View, TouchableOpacity, Image,Text} from 'react-native';
 import { Feather } from  '@expo/vector-icons'
-import {styles} from '../styles.js'
+import {styles} from '../styles'
 
 
 const data =    {

@@ -6,7 +6,7 @@ import {
   Dimensions,
   Animated
 } from 'react-native';
-import {ValidationHeader,ValidationSelectorBtn,LoginForm,SignUpForm} from '../modules/index.js';
+import {ValidationHeader,ValidationSelectorBtn,LoginForm,SignUpForm} from '../modules/index';
 
 const {width} = Dimensions.get('window');
 
