@@ -1,20 +1,20 @@
 import React from 'react';
 import { View , StyleSheet } from 'react-native';
 import { CurrentInfo, CurrentButtons } from '../index';
-
+import { NavigationProp, RouteProp } from '@react-navigation/native';
 import { MusicItem } from '../../utils/Types';
 import { mockList } from '../../utils/mockFile';
 
-const data: MusicItem = mockList[0];
+const item: MusicItem = mockList[0];
 
 interface CurrentSong {
-  itemPressed: () => void;
+  navigation: NavigationProp<any>; 
 }
 
-const CurrentMusic: React.FC<CurrentSong> = ({itemPressed}) => {
+const CurrentMusic: React.FC<CurrentSong> = ({navigation}) => {
   return (
     <View style={CurrentStyles.CurrentMusic}>
-      <CurrentInfo data={data} onPress={itemPressed}/>
+      <CurrentInfo data={item} onPress={() => navigation.navigate('Player', {item})}/>
       <CurrentButtons/>
     </View>
   );

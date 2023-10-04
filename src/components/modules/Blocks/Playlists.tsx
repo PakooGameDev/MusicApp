@@ -2,21 +2,21 @@ import React from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 import { Playlist } from '../index';
 import {PlaylistItem} from '../../utils/Types';
-
+import { NavigationProp, RouteProp } from '@react-navigation/native';
 
 interface MusicListProps {
   data: PlaylistItem[];
-  itemPressed: () => void;
+  navigation: NavigationProp<any>;
 }
 
-const Playlists: React.FC<MusicListProps> = (props) => {
+const Playlists: React.FC<MusicListProps> = ({data, navigation}) => {
   const renderItem = ({ item, index }: ListRenderItemInfo<PlaylistItem>) => (
     <Playlist 
       key={item.id}
       Item={item}
       dataLength={item.data.length}
       index={index}
-      onPress={props.itemPressed}
+      onPress={() => navigation.navigate('PlaylistScreen', {item})}
     />
   );
 
@@ -27,7 +27,7 @@ const Playlists: React.FC<MusicListProps> = (props) => {
       removeClippedSubviews={true}
       horizontal
       showsHorizontalScrollIndicator={false}
-      data={props.data}
+      data={data}
       renderItem={renderItem}
     />
   );

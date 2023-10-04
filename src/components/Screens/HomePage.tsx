@@ -9,7 +9,7 @@ export const Home: React.FC<any> = ({ navigation }) => {
     return (
       <View>
         <Title title='Playlists' />
-        <Playlists data={playlistData} itemPressed={() => navigation.navigate('PlaylistScreen')} />
+        <Playlists data={playlistData} navigation={navigation}/>
         <Title title='Recommendations' />
       </View>
     )
@@ -18,8 +18,8 @@ export const Home: React.FC<any> = ({ navigation }) => {
     <SafeAreaView style={CurrentStyles.container}>
       <HeaderBlock name='Home' />
       <Search/>
-      <MusicList dataMusic={mockList} header={MusicListHeader} itemPressed={() => navigation.navigate('Player')}/>
-      <CurrentMusic itemPressed={() => navigation.navigate('Player')} />
+      <MusicList dataMusic={mockList} header={MusicListHeader} navigation={navigation}/>
+      <CurrentMusic navigation={navigation} />
     </SafeAreaView>
   );
 }

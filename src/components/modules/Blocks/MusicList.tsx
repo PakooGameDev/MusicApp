@@ -1,25 +1,29 @@
 import React from 'react';
 import { FlatList, ListRenderItem } from 'react-native';
 import { Song } from '../Items/SongItem';
+import { NavigationProp, RouteProp } from '@react-navigation/native';
 import { MusicItem} from '../../utils/Types';
 
 interface MusicListProps {
   dataMusic: MusicItem[];
-  itemPressed: () => void;
+  navigation: NavigationProp<any>; 
   header: React.FC;
 }
 
-const MusicList: React.FC<MusicListProps> = (props) => {
+const MusicList: React.FC<MusicListProps> = ({ dataMusic, navigation, header }) => {
   const _renderItem: ListRenderItem<MusicItem> = ({ item }) => (
-    <Song key={item.id} parentItem={ item } onPress={props.itemPressed}/>
+    <Song
+      key={item.id}
+      parentItem={item}
+      onPress={() => navigation.navigate('Player', { item })}
+    />
   );
-
   return (
     <FlatList
-      data={props.dataMusic}
+      data={dataMusic}
       renderItem={_renderItem}
       keyExtractor={(item) => item.id.toString()} 
-      ListHeaderComponent={props.header}
+      ListHeaderComponent={header}
     />
   );
 };
