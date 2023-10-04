@@ -11,8 +11,8 @@ import { Feather } from  '@expo/vector-icons'
             <Feather name='headphones' style={{ color: '#a1a3a4',fontSize:190, }}/>
           </View>
 
-          <Text numberOfLines={2} style={{}}>Title</Text> 
-          <Text numberOfLines={2} style={{}}>Author</Text>  
+          <Text numberOfLines={2} style={{}}>{props.title}</Text> 
+          <Text numberOfLines={2} style={{}}>{props.author}</Text>  
         </View>
       </SafeAreaView>
     );

@@ -64,7 +64,7 @@ export const Library : React.FC = ({navigation}) => {
             ))} 
           </ScrollView>
         </View>
-        <MusicList data={listData} Screen='Library'/>
+        <MusicList data={listData} />
       </SafeAreaView>
     );
   }

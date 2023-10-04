@@ -1,39 +1,40 @@
-import React, { useRef } from 'react';
-import {  View, TouchableOpacity, Image,Text} from 'react-native';
-import { Feather } from  '@expo/vector-icons'
-import {styles} from '../../../../styles'
+import React from 'react';
+import { View , StyleSheet } from 'react-native';
+import { CurrentInfo, CurrentButtons } from '../index';
 
+import { MusicItem } from '../../utils/Types';
+import { mockList } from '../../utils/mockFile';
 
-const data =    {
-        id: '001',
-        name: "Save Your Tears Save Your Tears Save Your Tears Save Your Tears Save Your Tears Save Your Tears",
-        author: 'FFDP',
-        thumbnail: require('../../../../assets/songLogo.jpg'),
-        long: '4:54'
-    }
+const data: MusicItem = mockList[0];
 
-
-export const CurrentMusic: React.FC = ({ name, author, navigation }) => {
-    return  (
-        <View  style={styles.CurrentMusic} >
-            <TouchableOpacity  style={styles.CurrentInfo} onPress={()=>{navigation.navigate('Player')}}>
-                <Image style={{height:50,width:50,borderRadius:5,}} source={data.thumbnail}/>
-                <View style={{marginLeft:10,width:200}}>
-                    <Text numberOfLines={1} style={styles.songTitle}>{data.name}</Text>
-                    <View style={{flexDirection:'row'}}>
-                        <Text numberOfLines={1} style={styles.songLong}>{data.long}</Text>
-                        <Text numberOfLines={1} style={styles.songAuthor}>{data.author}</Text>
-                    </View>  
-                </View>
-            </TouchableOpacity>
-            <View style={styles.CurrentButtons}>
-                <TouchableOpacity>
-                    <Feather name='play' style={styles.CurrentPlayer}/>
-                </TouchableOpacity> 
-                <TouchableOpacity>
-                    <Feather name='x' style={styles.CurrentPlayer}/>
-                </TouchableOpacity> 
-            </View>
-        </View>
-    );
+interface CurrentSong {
+  itemPressed: () => void;
 }
+
+const CurrentMusic: React.FC<CurrentSong> = ({itemPressed}) => {
+  return (
+    <View style={CurrentStyles.CurrentMusic}>
+      <CurrentInfo data={data} onPress={itemPressed}/>
+      <CurrentButtons/>
+    </View>
+  );
+}
+
+const CurrentStyles = StyleSheet.create({
+    CurrentMusic:{
+        height: 69,
+        borderTopWidth: 3,
+        borderColor:'rgba(255, 162, 0, 1)',
+        backgroundColor: '#2a2e32',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems:'center',
+        paddingHorizontal:20,
+        zIndex:1,
+    },
+});
+
+export default CurrentMusic;
+
+
+

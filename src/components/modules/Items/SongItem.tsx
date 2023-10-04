@@ -1,22 +1,29 @@
-import {  View,TouchableOpacity,  Image,Text} from 'react-native';
-import {styles} from '../../../../styles'
+import React from 'react';
+import { View, Pressable, Image, Text } from 'react-native';
+import { styles } from '../../../../styles';
 import { SongMenu } from '../Buttons/SongMenu';
+import { MusicItem, NavigationType } from '../../utils/Types';
+import {TextComponent} from '../index';
 
-export function Song (props) {
-return(
+interface SongProps {
+  parentItem: MusicItem;
+  onPress: () => void;
+}
+
+export const Song: React.FC<SongProps> = ({ onPress, parentItem }) => {
+  return (
     <View style={styles.songItem}>
-        <TouchableOpacity style={styles.songMeta} >
-            <Image style={styles.songLogo} source={props.parentItem.Item.thumbnail}/>
-            <View style={{marginLeft:10,width:250}}>
-                <Text numberOfLines={1} style={styles.songTitle}>{props.parentItem.Item.title}</Text>
-                <View style={{flexDirection:'row'}}>
-                    <Text numberOfLines={1} style={styles.songLong}>{props.parentItem.Item.long}</Text>
-                    <Text numberOfLines={1} style={styles.songAuthor}>{props.parentItem.Item.author}</Text>
-                </View>  
+      <Pressable style={styles.songMeta} onPress={onPress}>
+        <Image style={styles.songLogo} source={{ uri: parentItem.thumbnail }} />
+        <View style={{ marginLeft: 10, width: 250 }}>
+            <TextComponent text={parentItem.title} style={styles.songTitle} />
+            <View style={{ flexDirection: 'row' }}>
+                <TextComponent text={parentItem.long} style={styles.songLong} />
+                <TextComponent text={parentItem.author} style={styles.songAuthor} />
             </View>
-        </TouchableOpacity>
-        <SongMenu parentItem={props.parentItem}/>
+        </View>
+      </Pressable>
+      <SongMenu parentItem={parentItem} />
     </View>
-)};
-
-
+  );
+}

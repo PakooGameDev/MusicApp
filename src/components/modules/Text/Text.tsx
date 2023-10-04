@@ -4,24 +4,14 @@ import { Text, StyleProp, TextStyle, StyleSheet} from 'react-native';
 
 interface TextComponentProps {
   text: string;
-  numberOfLines: number;
-  style?: StyleProp<TextStyle> | object; // Проп для пользовательских стилей
+  numberOfLines?: number;
+  style?: StyleProp<TextStyle> | object; 
 }
 
-const TextComponent: React.FC<TextComponentProps> = ({ text, numberOfLines, style }) => (
-  <Text numberOfLines={numberOfLines} style={[CurrentStyle.p, style]}>
+const TextComponent: React.FC<TextComponentProps> = ({ text, numberOfLines = 1, style }) => (
+  <Text numberOfLines={numberOfLines} style={style}>
     {text}
   </Text>
 );
-
-const CurrentStyle = StyleSheet.create({
-    p: {
-        textAlign:'center',
-        fontWeight: '300',
-        fontSize:16,  
-        color:'#a1a3a4',
-      },
-});
-
 
 export default TextComponent;

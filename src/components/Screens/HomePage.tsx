@@ -1,31 +1,33 @@
-import React,{useState} from 'react';
-import { SafeAreaView, View} from 'react-native';
+import React from 'react';
+import { SafeAreaView, Platform, StatusBar, StyleSheet, View} from 'react-native';
 import { MusicList,CurrentMusic, HeaderBlock,Search,Title,Playlists} from '../modules/index';
-import {styles} from '../../../styles';
+import {mockList, playlistData} from '../utils/mockFile';
 
-import {mockList} from '../utils/mockFile';
 
-const FlatList_Header = ( navigation ) => {
-  return (
+export const Home: React.FC<any> = ({ navigation }) => {
+  const MusicListHeader: React.FC = () => {
+    return (
       <View>
-          <Search/>
-          <Title title='Playlists'/>
-          <Playlists navigation={ navigation } Screen='Home' />
-          <Title title='Recommendations'/>
+        <Title title='Playlists' />
+        <Playlists data={playlistData} itemPressed={() => navigation.navigate('PlaylistScreen')} />
+        <Title title='Recommendations' />
       </View>
+    )
+  }
+  return (
+    <SafeAreaView style={CurrentStyles.container}>
+      <HeaderBlock name='Home' />
+      <Search/>
+      <MusicList dataMusic={mockList} header={MusicListHeader} itemPressed={() => navigation.navigate('Player')}/>
+      <CurrentMusic itemPressed={() => navigation.navigate('Player')} />
+    </SafeAreaView>
   );
 }
-    
-
-export const Home: React.FC = ({ navigation }) => {
-
-    return (
-      <SafeAreaView style={styles.container}>
-        <HeaderBlock name='Home'/>
-        <MusicList data={mockList} header={FlatList_Header(navigation)} />
-        <CurrentMusic name={'smth'} author={'smne'} navigation={navigation}/>
-      </SafeAreaView>
-    );
-  }
   
- 
+const CurrentStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#212529',
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
+  },
+});

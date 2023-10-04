@@ -1,23 +1,27 @@
-import { FlatList} from 'react-native';
+import React from 'react';
+import { FlatList, ListRenderItem } from 'react-native';
 import { Song } from '../Items/SongItem';
+import { MusicItem} from '../../utils/Types';
 
-export const MusicList: React.FC = (props) => {
-    const _renderItem = ({item,index}) => (
-    <Song    
-        parentItem={{
-            Index:index,
-            Item:item,
-        }} 
-    />        
-    );
-    return ( 
-    <FlatList    
-        data={props.data}
-        renderItem={_renderItem}
-        keyExtractor={item => item.id}
-        ListHeaderComponent={props.header}
-    />          
-    );
-  }
- 
+interface MusicListProps {
+  dataMusic: MusicItem[];
+  itemPressed: () => void;
+  header: React.FC;
+}
 
+const MusicList: React.FC<MusicListProps> = (props) => {
+  const _renderItem: ListRenderItem<MusicItem> = ({ item }) => (
+    <Song key={item.id} parentItem={ item } onPress={props.itemPressed}/>
+  );
+
+  return (
+    <FlatList
+      data={props.dataMusic}
+      renderItem={_renderItem}
+      keyExtractor={(item) => item.id.toString()} 
+      ListHeaderComponent={props.header}
+    />
+  );
+};
+
+export default MusicList;

@@ -1,14 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { Player, Welcome, Auth, PlaylistScreen } from '../Screens/index';
 import TabsNavigation from './TabsNavigation';
-
-type MainStackParamList = {
-  Welcome: React.FC;
-  Auth: React.FC;
-  TabsNavigation: React.FC;
-  Player: React.FC;
-  PlaylistScreen: React.FC;
-};
+import { MainStackParamList } from '../utils/Types';
 
 const RootStack = createStackNavigator<MainStackParamList>();
 

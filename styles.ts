@@ -120,7 +120,6 @@ songLong:{
   fontWeight: '300',
   fontSize:13, 
   color: '#a1a3a4',
-
 },
 songMenu:{
   fontWeight: '400',

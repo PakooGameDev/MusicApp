@@ -1,14 +1,10 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { WelcomePage } from '../../../styles';
-import { NavigationProp, ParamListBase } from '@react-navigation/native';
+import { NavigationType } from '../utils/Types'
 import { TextButton, TextComponent, Banner, IconButton } from '../modules/index';
 
-interface WelcomeProps {
-  navigation: NavigationProp<ParamListBase>;
-}
-
-const Welcome: React.FC<WelcomeProps> = ({ navigation }) => {
+const Welcome: React.FC<NavigationType> = ({ navigation }) => {
   return (
     <SafeAreaView style={WelcomePage.WelcomePage}>
       <View style={WelcomePage.Container}>

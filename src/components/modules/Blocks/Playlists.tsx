@@ -1,22 +1,22 @@
 import React from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 import { Playlist } from '../index';
+import {PlaylistItem} from '../../utils/Types';
 
-import { playlist } from '../../utils/mockFile';
 
-interface PlaylistsProps {
-  Screen: any; // Замените тип на соответствующий
-  navigation: any; // Замените тип на соответствующий
+interface MusicListProps {
+  data: PlaylistItem[];
+  itemPressed: () => void;
 }
 
-const Playlists: React.FC<PlaylistsProps> = ({ Screen, navigation }) => {
-  const renderItem = ({ item, index }: ListRenderItemInfo<any>) => (
-    <Playlist
+const Playlists: React.FC<MusicListProps> = (props) => {
+  const renderItem = ({ item, index }: ListRenderItemInfo<PlaylistItem>) => (
+    <Playlist 
+      key={item.id}
       Item={item}
-      Screen={Screen}
-      data={playlist}
+      dataLength={item.data.length}
       index={index}
-      navigation={navigation}
+      onPress={props.itemPressed}
     />
   );
 
@@ -27,7 +27,7 @@ const Playlists: React.FC<PlaylistsProps> = ({ Screen, navigation }) => {
       removeClippedSubviews={true}
       horizontal
       showsHorizontalScrollIndicator={false}
-      data={playlist}
+      data={props.data}
       renderItem={renderItem}
     />
   );

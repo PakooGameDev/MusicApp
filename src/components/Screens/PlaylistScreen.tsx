@@ -3,17 +3,17 @@ import {  Search, MusicList} from '../modules/index';
 import {styles} from '../../../styles'
 
     const FlatList_Header = () => {
-        return (
-            
-                <View style={{marginVertical: 20,}}><Search/></View>
- 
+        return (        
+          <View style={{marginVertical: 20,}}><Search/></View>
         );
     }
+
   
-const PlaylistScreen: React.FC = () => {
+  
+const PlaylistScreen: React.FC<any> = (props) => {
     return (
       <SafeAreaView style={styles.container}>
-        <MusicList header={FlatList_Header} Screen='Playlist'/>
+        <MusicList data={props.data} header={FlatList_Header} navigation={props.navigation}/>
       </SafeAreaView>
     );
   }
