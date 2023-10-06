@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button, Text } from 'react-native';
 import axios from 'axios';
 import  'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
@@ -9,7 +10,7 @@ import VKAuth from './VKService';
 
 const App = () => {
   const [accessToken, setAccessToken] = useState('');
-
+  const [pressed, setPressed] = useState(false);
 
   async function authenticate(token: string) {
     try {
@@ -23,15 +24,18 @@ const App = () => {
       console.log(musicData);
       // Дальнейшая обработка данных музыки...
     } catch (error) {
-      console.error('Ошибка аутентификации:', error);
+      console.error('Ошибка получения:', error);
     }
   }
+
+const press = () => {setPressed(true)}
 
   return (
     <MenuProvider>
       <NavigationContainer>
-        <VKAuth onAuthSuccess={authenticate} />
-        {accessToken && <p>Access Token: {accessToken}</p>}
+        <Button title="VK" onPress={press} />
+        {pressed && <VKAuth onAuthSuccess={authenticate} />}
+        {accessToken && <Text>Access Token: {accessToken}</Text>}
         <MainStack />   
       </NavigationContainer>
     </MenuProvider>
