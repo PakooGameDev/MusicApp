@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator, BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 import { Home, Library, Settings } from '../Screens/index';
-import { TabsParamList } from '../utils/Types';
+import { TabsParamList } from '../../utils/Types';
 
 const TabsMenu = createBottomTabNavigator<TabsParamList>(); // Нижнее навигационное меню - табы
 

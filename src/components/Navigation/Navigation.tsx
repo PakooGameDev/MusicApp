@@ -1,7 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { Player, Welcome, Auth, PlaylistScreen } from '../Screens/index';
 import TabsNavigation from './TabsNavigation';
-import { MainStackParamList } from '../utils/Types';
+import { MainStackParamList } from '../../utils/Types';
 
 const RootStack = createStackNavigator<MainStackParamList>();
 
