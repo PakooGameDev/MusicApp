@@ -5,12 +5,13 @@ import { NavigationProp, RouteProp } from '@react-navigation/native';
 import { MusicItem} from '../../../utils/Types';
 
 interface MusicListProps {
-  dataMusic: MusicItem[];
+  dataMusic: any[];
   navigation: NavigationProp<any>; 
-  header: React.FC;
+  header: React.FC | null;
+  onEndReached:  (() => void) | undefined;
 }
 
-const MusicList: React.FC<MusicListProps> = ({ dataMusic, navigation, header }) => {
+const MusicList: React.FC<MusicListProps> = ({ dataMusic, navigation, header, onEndReached}) => {
   const _renderItem: ListRenderItem<MusicItem> = ({ item }) => (
     <Song
       key={item.id}
@@ -22,8 +23,10 @@ const MusicList: React.FC<MusicListProps> = ({ dataMusic, navigation, header }) 
     <FlatList
       data={dataMusic}
       renderItem={_renderItem}
-      keyExtractor={(item) => item.id.toString()} 
+      keyExtractor={(item) => item.id} 
       ListHeaderComponent={header}
+      onEndReached={onEndReached}
+      onEndReachedThreshold={0.5}
     />
   );
 };

@@ -16,6 +16,26 @@ export type PlaylistItem = {
     data: MusicItem[];
 }
 
+// export type SpotifyItem = {
+//     "album": {},
+//     "artists": [],
+//     "available_markets": [],
+//     "disc_number": number,
+//     "duration_ms": number,
+//     "explicit": false,
+//     "external_ids": {},
+//     "external_urls": {},
+//     "href": string,
+//     "id": string,
+//     "is_local": boolean,
+//     "name": string,
+//     "popularity": number,
+//     "preview_url": string,
+//     "track_number": number,
+//     "type": string,
+//     "uri": string
+// }
+
 export type TabsParamList = {
     Home: React.FC;
     Library: React.FC;

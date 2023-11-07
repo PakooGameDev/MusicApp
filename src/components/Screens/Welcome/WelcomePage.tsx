@@ -2,7 +2,8 @@ import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { WelcomePage } from '../../../styles/styles';
 import { NavigationType } from '../../../utils/Types'
-import { TextButton, TextComponent, Banner, IconButton } from '../../UI/index';
+import { TextComponent, Banner } from '../../UI/index';
+import SpotifyAuth from '../../../../spotifyAPI'
 
 const Welcome: React.FC<NavigationType> = ({ navigation }) => {
   return (
@@ -22,16 +23,7 @@ const Welcome: React.FC<NavigationType> = ({ navigation }) => {
           style={WelcomePage.p} 
         />
 
-        <TextButton 
-          onPress={() => navigation.navigate('Auth')} 
-          buttonText="Login" 
-        />
-        <IconButton 
-          iconName="corner-up-right" 
-          onPress={() => navigation.navigate('TabsNavigation')} 
-          ViewStyle={WelcomePage.enterBtn} 
-          IconStyle={WelcomePage.enterBtnIcon}
-        />
+        <SpotifyAuth onPress={() => navigation.navigate('TabsNavigation')}  placeholder="Enter with Spotify"/>
 
       </View>
     </SafeAreaView>

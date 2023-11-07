@@ -1,22 +1,21 @@
 import React from 'react';
 import { View, Pressable, Image, Text, StyleSheet } from 'react-native';
-import { PlaylistItem } from '../../../utils/Types';
 import { Feather } from '@expo/vector-icons';
 
 interface PlaylistProps {
-  Item: PlaylistItem,
+  item: any,
   index: number;
   dataLength: number; 
   onPress: () => void;
 }
 
-const Playlist: React.FC<PlaylistProps> = ({ onPress, Item, index, dataLength }) => {
+const Playlist: React.FC<PlaylistProps> = ({ onPress, item, index, dataLength }) => {
   return (
     <View style={{ marginLeft: index === 0 ? 31 : 0, marginRight: index === dataLength ? 31 : 31 }}>
       <Pressable onPress={onPress}>
-      {Item.thumbnail 
+      {item.images[0].url
         ? 
-        <Image style={CurrentStyles.songLogoRec} source={{ uri: Item.thumbnail }} />
+        <Image style={CurrentStyles.songLogoRec} source={{ uri: item.images[0].url }} />
         : 
         <View style={{ 
           height: 180, 
@@ -31,10 +30,9 @@ const Playlist: React.FC<PlaylistProps> = ({ onPress, Item, index, dataLength })
         </View>
         }
         <View style={{ width: 150 }}>
-          <Text numberOfLines={1} style={CurrentStyles.songTitle}>{Item.title}</Text>
+          <Text numberOfLines={1} style={CurrentStyles.songTitle}>{item.name}</Text>
           <View style={{ flexDirection: 'row' }}>
-            <Text numberOfLines={1} style={CurrentStyles.songLong}>{dataLength} songs</Text>
-            <Text numberOfLines={1} style={CurrentStyles.songAuthor}>{Item.author}</Text>
+            <Text numberOfLines={1} style={CurrentStyles.songLong}>{item.tracks.total} songs</Text>
           </View>
         </View>
       </Pressable>
@@ -67,6 +65,7 @@ const CurrentStyles = StyleSheet.create({
         fontWeight: '300',
         fontSize:13, 
         color: '#a1a3a4',
+        width:'70%',
       },  
   });
 

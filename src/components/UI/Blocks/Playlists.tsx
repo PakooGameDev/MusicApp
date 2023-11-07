@@ -5,16 +5,16 @@ import {PlaylistItem} from '../../../utils/Types';
 import { NavigationProp, RouteProp } from '@react-navigation/native';
 
 interface MusicListProps {
-  data: PlaylistItem[];
+  data: any[];
   navigation: NavigationProp<any>;
 }
 
 const Playlists: React.FC<MusicListProps> = ({data, navigation}) => {
-  const renderItem = ({ item, index }: ListRenderItemInfo<PlaylistItem>) => (
+  const renderItem = ({ item, index }: ListRenderItemInfo<any>) => (
     <Playlist 
       key={item.id}
-      Item={item}
-      dataLength={item.data.length}
+      item={item}
+      dataLength={item.duration_ms}
       index={index}
       onPress={() => navigation.navigate('PlaylistScreen', {item})}
     />
@@ -22,8 +22,8 @@ const Playlists: React.FC<MusicListProps> = ({data, navigation}) => {
 
   return (
     <FlatList
-      keyExtractor={(item) => item.id.toString()} // Предполагается, что id - это строка или число
-      initialNumToRender={8}
+      keyExtractor={(item) => item.id} // Предполагается, что id - это строка или число
+      initialNumToRender={15}
       removeClippedSubviews={true}
       horizontal
       showsHorizontalScrollIndicator={false}

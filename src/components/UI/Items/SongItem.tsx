@@ -5,19 +5,23 @@ import { SongMenu } from '../Buttons/SongMenu';
 import { MusicItem, NavigationType } from '../../../utils/Types';
 import {TextComponent} from '../index';
 import { Feather } from '@expo/vector-icons';
+import { convertDuration } from './../../../utils/methods';
 
 interface SongProps {
-  parentItem: MusicItem;
+  parentItem: any;
   onPress: () => void;
 }
 
 export const Song: React.FC<SongProps> = ({ onPress, parentItem }) => {
+  const authorNames = parentItem.artists.reduce((names:any, artist:any) => {
+    return names + artist.name + ' ';
+  }, '');
   return (
     <View style={styles.songItem}>
       <Pressable style={styles.songMeta} onPress={onPress}>
-        {parentItem.thumbnail 
+        {parentItem.album.images[0].url
         ? 
-        <Image style={styles.songLogo} source={parentItem.thumbnail} /> 
+        <Image style={styles.songLogo} source={parentItem.album.images[0].url} /> 
         : 
         <View style={{ 
           height: 60, 
@@ -33,10 +37,10 @@ export const Song: React.FC<SongProps> = ({ onPress, parentItem }) => {
         }
         
         <View style={{ marginLeft: 10, width: 250 }}>
-            <TextComponent text={parentItem.title} style={styles.songTitle} />
+            <TextComponent text={parentItem.name} style={styles.songTitle} />
             <View style={{ flexDirection: 'row' }}>
-                <TextComponent text={parentItem.long} style={styles.songLong} />
-                <TextComponent text={parentItem.author} style={styles.songAuthor} />
+                <TextComponent text={convertDuration(parentItem.duration_ms)} style={styles.songLong} />   
+                <TextComponent text={authorNames} style={styles.songAuthor} />
             </View>
         </View>
       </Pressable>
